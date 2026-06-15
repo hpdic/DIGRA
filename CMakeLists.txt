@@ -12,6 +12,9 @@ SET(CMAKE_CXX_FLAGS "-O3 -march=native -lrt -DHAVE_CXX0X -fpic -w -fopenmp -ftre
 
 option(ENABLE_SSE "Enable SSE support" ON)
 
+# put all built executables in ./bin so they don't clutter the repo root
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+
 # build the churn driver against DIGRA's hnswlib + TreeHNSW.hpp.
 # Place this CMakeLists + digra_churn.cpp inside the DIGRA repo root
 # (next to TreeHNSW.hpp, utils.hpp, and the hnswlib/ dir).
@@ -26,4 +29,16 @@ add_executable(digra_churn
         hnswlib/visited_list_pool.h
         utils.hpp
         TreeHNSW.hpp
+)
+
+# vanilla hnswlib churn baseline (no B-tree, pure HNSW add/markDelete)
+add_executable(hnsw_churn
+        hnsw_churn.cpp
+        hnswlib/bruteforce.h
+        hnswlib/hnswalg.h
+        hnswlib/hnswlib.h
+        hnswlib/space_ip.h
+        hnswlib/space_l2.h
+        hnswlib/stop_condition.h
+        hnswlib/visited_list_pool.h
 )

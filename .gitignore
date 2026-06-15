@@ -1,3 +1,15 @@
-/CMakeFiles
-/data
-**.bin
+# built executables
+bin/
+digra_churn
+hnsw_churn
+Digra
+
+# CMake artifacts
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*.o
+
+# symlinked data
+data
