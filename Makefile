@@ -129,6 +129,32 @@ digra_churn/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/digra_churn.dir/build.make CMakeFiles/digra_churn.dir/build
 .PHONY : digra_churn/fast
 
+#=============================================================================
+# Target rules for targets named hnsw_churn
+
+# Build rule for target.
+hnsw_churn: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hnsw_churn
+.PHONY : hnsw_churn
+
+# fast build rule for target.
+hnsw_churn/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hnsw_churn.dir/build.make CMakeFiles/hnsw_churn.dir/build
+.PHONY : hnsw_churn/fast
+
+#=============================================================================
+# Target rules for targets named hnsw_reclaim_probe
+
+# Build rule for target.
+hnsw_reclaim_probe: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hnsw_reclaim_probe
+.PHONY : hnsw_reclaim_probe
+
+# fast build rule for target.
+hnsw_reclaim_probe/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hnsw_reclaim_probe.dir/build.make CMakeFiles/hnsw_reclaim_probe.dir/build
+.PHONY : hnsw_reclaim_probe/fast
+
 digra_churn.o: digra_churn.cpp.o
 .PHONY : digra_churn.o
 
@@ -153,6 +179,54 @@ digra_churn.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/digra_churn.dir/build.make CMakeFiles/digra_churn.dir/digra_churn.cpp.s
 .PHONY : digra_churn.cpp.s
 
+hnsw_churn.o: hnsw_churn.cpp.o
+.PHONY : hnsw_churn.o
+
+# target to build an object file
+hnsw_churn.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hnsw_churn.dir/build.make CMakeFiles/hnsw_churn.dir/hnsw_churn.cpp.o
+.PHONY : hnsw_churn.cpp.o
+
+hnsw_churn.i: hnsw_churn.cpp.i
+.PHONY : hnsw_churn.i
+
+# target to preprocess a source file
+hnsw_churn.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hnsw_churn.dir/build.make CMakeFiles/hnsw_churn.dir/hnsw_churn.cpp.i
+.PHONY : hnsw_churn.cpp.i
+
+hnsw_churn.s: hnsw_churn.cpp.s
+.PHONY : hnsw_churn.s
+
+# target to generate assembly for a file
+hnsw_churn.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hnsw_churn.dir/build.make CMakeFiles/hnsw_churn.dir/hnsw_churn.cpp.s
+.PHONY : hnsw_churn.cpp.s
+
+hnsw_reclaim_probe.o: hnsw_reclaim_probe.cpp.o
+.PHONY : hnsw_reclaim_probe.o
+
+# target to build an object file
+hnsw_reclaim_probe.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hnsw_reclaim_probe.dir/build.make CMakeFiles/hnsw_reclaim_probe.dir/hnsw_reclaim_probe.cpp.o
+.PHONY : hnsw_reclaim_probe.cpp.o
+
+hnsw_reclaim_probe.i: hnsw_reclaim_probe.cpp.i
+.PHONY : hnsw_reclaim_probe.i
+
+# target to preprocess a source file
+hnsw_reclaim_probe.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hnsw_reclaim_probe.dir/build.make CMakeFiles/hnsw_reclaim_probe.dir/hnsw_reclaim_probe.cpp.i
+.PHONY : hnsw_reclaim_probe.cpp.i
+
+hnsw_reclaim_probe.s: hnsw_reclaim_probe.cpp.s
+.PHONY : hnsw_reclaim_probe.s
+
+# target to generate assembly for a file
+hnsw_reclaim_probe.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hnsw_reclaim_probe.dir/build.make CMakeFiles/hnsw_reclaim_probe.dir/hnsw_reclaim_probe.cpp.s
+.PHONY : hnsw_reclaim_probe.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -162,9 +236,17 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... digra_churn"
+	@echo "... hnsw_churn"
+	@echo "... hnsw_reclaim_probe"
 	@echo "... digra_churn.o"
 	@echo "... digra_churn.i"
 	@echo "... digra_churn.s"
+	@echo "... hnsw_churn.o"
+	@echo "... hnsw_churn.i"
+	@echo "... hnsw_churn.s"
+	@echo "... hnsw_reclaim_probe.o"
+	@echo "... hnsw_reclaim_probe.i"
+	@echo "... hnsw_reclaim_probe.s"
 .PHONY : help
 
 

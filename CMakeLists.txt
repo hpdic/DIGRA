@@ -42,3 +42,15 @@ add_executable(hnsw_churn
         hnswlib/stop_condition.h
         hnswlib/visited_list_pool.h
 )
+
+# probe: does hnswlib reclaim deleted slots or accumulate tombstones?
+add_executable(hnsw_reclaim_probe
+        hnsw_reclaim_probe.cpp
+        hnswlib/bruteforce.h
+        hnswlib/hnswalg.h
+        hnswlib/hnswlib.h
+        hnswlib/space_ip.h
+        hnswlib/space_l2.h
+        hnswlib/stop_condition.h
+        hnswlib/visited_list_pool.h
+)

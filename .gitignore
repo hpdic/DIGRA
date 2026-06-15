@@ -2,6 +2,7 @@
 bin/
 digra_churn
 hnsw_churn
+hnsw_reclaim_probe
 Digra
 
 # CMake artifacts

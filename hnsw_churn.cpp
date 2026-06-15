@@ -129,11 +129,14 @@ int main(int argc, char** argv) {
     auto live_vec = [&]{ return std::vector<int>(liveSet.begin(), liveSet.end()); };
 
     std::ofstream csv(outCsv);
-    csv << "round,maintenance_ms,recall,live\n";
+    csv << "round,maintenance_ms,recall,live,used_slabs\n";
 
     double r0 = eval_recall(base, query, live_vec(), index, dim, nq, k);
     std::cout << "initial recall@10 = " << r0 << " (live=" << liveSet.size() << ")\n";
-    csv << "0,0.0," << r0 << "," << liveSet.size() << "\n";
+    // cur_element_count = HNSW's structural footprint: live + accumulated
+    // tombstones (markDelete never reclaims). Analogous to ETALE's used_slabs.
+    csv << "0,0.0," << r0 << "," << liveSet.size() << ","
+        << index->cur_element_count << "\n";
 
     std::mt19937 rng(123);
     std::cout << "\nround   maintenance_ms   recall@10   live\n";
@@ -161,7 +164,8 @@ int main(int argc, char** argv) {
         double r = eval_recall(base, query, live_vec(), index, dim, nq, k);
         sum_ms += maint_ms; sum_r += r;
         printf("%5d   %14.2f   %9.4f   %zu\n", rd, maint_ms, r, liveSet.size());
-        csv << rd << "," << maint_ms << "," << r << "," << liveSet.size() << "\n";
+        csv << rd << "," << maint_ms << "," << r << "," << liveSet.size() << ","
+            << index->cur_element_count << "\n";
     }
 
     csv.close();
